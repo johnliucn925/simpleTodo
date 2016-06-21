@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SimpleTodo</string>
+    <string name="btnAddItem">Add Item</string>
+    <string name="etAddItemHint">Enter a new item</string>
+    <string name="save">Save</string>
+</resources>
