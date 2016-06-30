@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
         lvItems = (ListView) findViewById(R.id.lvItems);
         items = new ArrayList<ToDoItem>();
         readItems();
-        itemsAdapter = new ArrayAdapter<ToDoItem>(this, R.layout.simple_list_item, items);
+        itemsAdapter = new ToDoItemAdapter(this, items);
         lvItems.setAdapter(itemsAdapter);
     }
 
@@ -89,6 +89,7 @@ public class MainActivity extends Activity {
         toDoItem.item = item;
         toDoItem.created = new Date();
         toDoItem.updated = new Date();
+        toDoItem.targetDate = new Date();
         toDoItem.status = "new";
         toDoItem.save();
         return toDoItem;
