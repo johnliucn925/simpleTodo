@@ -4,4 +4,6 @@
     <string name="btnAddItem">Add Item</string>
     <string name="etAddItemHint">Enter a new item</string>
     <string name="save">Save</string>
+    <string name="cancel">Canel</string>
+
 </resources>

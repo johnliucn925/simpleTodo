@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -38,7 +39,20 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 
 
     private String getDateAsString(Date date) {
-        java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat("dd/MM/yyyy");
+        java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat("MM/dd/yyyy");
         return simpleDateFormat.format(date);
+    }
+
+    @Override
+    public void notifyDataSetChanged() {
+        setNotifyOnChange(false);
+        //do your sorting here
+        super.sort(new Comparator<ToDoItem>() {
+            @Override
+            public int compare(ToDoItem lhs, ToDoItem rhs) {
+                return lhs.targetDate.compareTo(rhs.targetDate);   //or whatever your sorting algorithm
+            }
+        });
+        super.notifyDataSetChanged();
     }
 }
